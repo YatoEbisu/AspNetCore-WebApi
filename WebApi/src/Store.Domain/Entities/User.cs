@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Domain.Entities
 {
-    internal class User
+    public class User : EntityBase
     {
         public User(string login, string password)
         {

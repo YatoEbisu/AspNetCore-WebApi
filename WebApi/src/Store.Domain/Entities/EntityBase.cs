@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Store.Domain.Entities
 {
-    public class EntityBase
+    public abstract class EntityBase
     {
         public Guid Id { get; set; }
+        public abstract bool IsValid();
     }
 }

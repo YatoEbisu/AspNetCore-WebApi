@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Domain.Entities.Validator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,5 +19,9 @@ namespace Store.Domain.Entities
         public string Password { get; set; }
         public DateTime CreatedAt { get; set; }
         public IEnumerable<string> Roles { get; set; }
+        public override bool IsValid()
+        {
+            return Validator<User>.IsValid(this, Activator.CreateInstance<UserValidator>());
+        }
     }
 }

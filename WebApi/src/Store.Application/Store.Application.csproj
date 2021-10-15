@@ -6,9 +6,16 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Config\" />
     <Folder Include="AutoMapper\" />
     <Folder Include="DTOs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Store.Infra.Data\Store.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

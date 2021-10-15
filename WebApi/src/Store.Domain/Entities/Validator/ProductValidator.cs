@@ -11,7 +11,6 @@ namespace Store.Domain.Entities.Validator
     {
         public ProductValidator()
         {
-             RuleFor(c => c.Id).NotEmpty().WithMessage("The {PropertyName} field cannot be empty");
              RuleFor(c => c.Name).NotEmpty().WithMessage("The {PropertyName} field cannot be empty");
              RuleFor(c => c.Brand).NotEmpty().WithMessage("The {PropertyName} field cannot be empty");
              RuleFor(c => c.Price).NotEmpty().WithMessage("The {PropertyName} field cannot be empty");

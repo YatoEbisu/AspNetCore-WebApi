@@ -11,7 +11,6 @@ namespace Store.Domain.Entities.Validator
     {
         public UserValidator()
         {
-            RuleFor(c => c.Id).NotEmpty().WithMessage("The {PropertyName} field cannot be empty");
             RuleFor(c => c.Login).NotEmpty().WithMessage("The {PropertyName} field cannot be empty");
             RuleFor(c => c.Password).NotEmpty().WithMessage("The {PropertyName} field cannot be empty");
         }

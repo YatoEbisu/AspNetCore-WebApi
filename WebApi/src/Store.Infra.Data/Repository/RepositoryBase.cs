@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace Store.Infra.Data.Repository
 {
-    public class Repository<T> : IRepository<T> where T : Entity
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : EntityBase
     {
         private readonly StoreContext _context;
-        public Repository(StoreContext context)
+        public RepositoryBase(StoreContext context)
         {
             _context = context;
         }

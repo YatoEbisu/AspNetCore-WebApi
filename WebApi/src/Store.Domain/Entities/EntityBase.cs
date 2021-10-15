@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Store.Domain.Entities
 {
-    public class Entity
+    public class EntityBase
     {
+        public Guid Id { get; set; }
     }
 }

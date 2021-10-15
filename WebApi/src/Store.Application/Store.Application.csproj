@@ -6,6 +6,15 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Config\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Store.Domain\Store.Domain.csproj" />
     <Folder Include="AutoMapper\" />
     <Folder Include="DTOs\" />
   </ItemGroup>

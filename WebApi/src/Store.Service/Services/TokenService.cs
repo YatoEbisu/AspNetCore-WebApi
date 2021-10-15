@@ -22,7 +22,8 @@ namespace Store.Service.Services
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, user.Login.ToString()),
-                    new Claim(ClaimTypes.Role, user.Roles?.Aggregate((x, y) => x + " " + y))
+                    new Claim(ClaimTypes.Role, user.Roles == null ? "" : user.Roles.ToString()),
+                    //new Claim(ClaimTypes.Role, user.Roles?.Aggregate((x, y) => x + " " + y))
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

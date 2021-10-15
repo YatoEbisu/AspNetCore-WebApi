@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Store.Infra.Data\Store.Infra.Data.csproj" />
+    <ProjectReference Include="..\Store.Service\Store.Service.csproj" />
   </ItemGroup>
 
 </Project>

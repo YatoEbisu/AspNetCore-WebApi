@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Store.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace Store.Infra.Data.Context
         public StoreContext(DbContextOptions<StoreContext> opt) : base(opt)
         {
         }
+
+        DbSet<User> Users { get; set; }
     }
 }

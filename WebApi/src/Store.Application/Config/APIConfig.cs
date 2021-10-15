@@ -5,7 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Store.Domain.Interfaces;
 using Store.Infra.Data.Context;
+using Store.Infra.Data.Repository;
+using Store.Service.Services;
 using System;
 
 namespace Store.Application.Config
@@ -19,21 +22,12 @@ namespace Store.Application.Config
             services.AddDbContext<StoreContext>(opt => opt
              .UseNpgsql(configuration.GetConnectionString("DefaultConnection"))
             );
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Store",
-                    Description = "A simple example ASP.NET Core Web API",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Breno SF",
-                        Email = "BrenoSilvaFortunato@gmail.com",
-                    }
-                });
-            });
+
+            //services.AddSwaggerGen();
             return services;
         }
 
@@ -46,12 +40,12 @@ namespace Store.Application.Config
 
             app.UseHttpsRedirection();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Store V1");
-                c.RoutePrefix = string.Empty;
-            });
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Store V1");
+            //    c.RoutePrefix = string.Empty;
+            //});
 
             app.UseRouting();
 

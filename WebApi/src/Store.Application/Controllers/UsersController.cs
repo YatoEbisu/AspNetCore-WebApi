@@ -30,10 +30,10 @@ namespace Store.Application.Controllers
 
             await _userService.Create(user);
 
-            return Created(nameof(Create), new { login = user.Password });
+            return Created(nameof(Create), new { login = user.Login });
         }
 
-        [HttpPost]
+        [HttpPost("Auth")]
         public async Task<IActionResult> Get([FromBody] UserDTO userDTO)
         {
             if (!_mapper.Map<User>(userDTO).IsValid())
